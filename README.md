@@ -1,2 +1,3 @@
 # ai-assistants
-Simple demonstration of using various AI assistants
+
+Simple demonstration of developing a sample technical solution using various AI coding assistants.
