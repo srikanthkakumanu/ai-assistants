@@ -1,67 +1,27 @@
-import { Table, Column, Model, DataType } from 'sequelize-typescript';
+const { Schema, model, Document } = require('mongoose');
+const { randomUUID } = require('node:crypto');
 
-export enum ExpenseCategory {
-  Food = 'Food',
-  Travel = 'Travel',
-  Utilities = 'Utilities',
-  Others = 'Others',
-}
+const ExpenseCategory = {
+  Food: 'Food',
+  Travel: 'Travel',
+  Utilities: 'Utilities',
+  Others: 'Others',
+};
 
-@Table({
-  tableName: 'expenses',
-  timestamps: true,
-})
-export class Expense extends Model {
-  @Column({
-    type: DataType.UUID,
-    defaultValue: DataType.UUIDV4,
-    primaryKey: true,
-    allowNull: false,
-  })
-  id!: string;
+const ExpenseSchema = new Schema(
+  {
+    id: { type: String, unique: true, required: true, default: () => randomUUID() },
+    title: { type: String, required: true },
+    description: { type: String, required: false },
+    amount: { type: Number, required: true },
+    category: { type: String, enum: Object.values(ExpenseCategory), required: true },
+    spentOnDate: { type: Date, required: true },
+  },
+  {
+    timestamps: true, // This handles createdAt and updatedAt
+  }
+);
 
-  @Column({
-    type: DataType.STRING,
-    allowNull: false,
-  })
-  title!: string;
+const Expense = model('Expense', ExpenseSchema);
 
-  @Column({
-    type: DataType.STRING,
-    allowNull: true,
-  })
-  description?: string;
-
-  @Column({
-    type: DataType.DECIMAL(10, 2),
-    allowNull: false,
-  })
-  amount!: number;
-
-  @Column({
-    type: DataType.ENUM(...Object.values(ExpenseCategory)),
-    allowNull: false,
-  })
-  category!: ExpenseCategory;
-
-  @Column({
-    type: DataType.DATE,
-    allowNull: false,
-    field: 'spent_on_date',
-  })
-  spentOnDate!: Date;
-
-  @Column({
-    type: DataType.DATE,
-    allowNull: false,
-    field: 'created_at',
-  })
-  createdAt!: Date;
-
-  @Column({
-    type: DataType.DATE,
-    allowNull: false,
-    field: 'updated_at',
-  })
-  updatedAt!: Date;
-}
+module.exports = { Expense, ExpenseCategory };

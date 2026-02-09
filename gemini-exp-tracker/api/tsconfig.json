@@ -1,21 +1,42 @@
 {
+  // Visit https://aka.ms/tsconfig to read more about this file
   "compilerOptions": {
+    // File Layout
     "rootDir": "./src",
     "outDir": "./dist",
-    "module": "nodenext",
-    "target": "esnext",
-    "types": [],
+
+    // Environment Settings
+    // See also https://aka.ms/tsconfig/module
+    "module": "CommonJS",
+    "target": "es2022",
+    "moduleResolution": "Node",
+    "types": ["node"],
+    // Other Outputs
     "sourceMap": true,
     "declaration": true,
     "declarationMap": true,
+    "declarationDir": "./dist/types", // Specify output directory for declaration files
+
+    // Stricter Typechecking Options
     "noUncheckedIndexedAccess": true,
     "exactOptionalPropertyTypes": true,
+
+    // Style Options
+    // "noImplicitReturns": true,
+    // "noImplicitOverride": true,
+    // "noUnusedLocals": true,
+    // "noUnusedParameters": true,
+    // "noFallthroughCasesInSwitch": true,
+    // "noPropertyAccessFromIndexSignature": true,
+
+    // Recommended Options
     "strict": true,
-    "jsx": "react-jsx",
-    "verbatimModuleSyntax": false,
+    // "jsx": "react-jsx", // Commenting out as this is not a React project
     "isolatedModules": true,
     "noUncheckedSideEffectImports": true,
-    "skipLibCheck": true
+    "moduleDetection": "force",
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
   },
-  "include": ["./src/**/*.ts"]
+  "exclude": ["src/__tests__"]
 }

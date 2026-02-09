@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-deployment
+  labels:
+    app: expense-tracker-web
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: expense-tracker-web
+  template:
+    metadata:
+      labels:
+        app: expense-tracker-web
+    spec:
+      containers:
+        - name: web
+          image: expense-tracker-web:latest # Will be built locally
+          imagePullPolicy: Never # Use locally built image
+          ports:
+            - containerPort: 3000
+          env:
+            - name: NEXT_PUBLIC_API_URL
+              value: "http://api-service:3000" # Connect to the API service inside the cluster
+            - name: PORT
+              value: "3000"

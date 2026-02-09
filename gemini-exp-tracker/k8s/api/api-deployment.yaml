@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-deployment
+  labels:
+    app: expense-tracker-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: expense-tracker-api
+  template:
+    metadata:
+      labels:
+        app: expense-tracker-api
+    spec:
+      containers:
+        - name: api
+          image: expense-tracker-api:latest # Will be built locally
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 3000
+          env:
+            - name: PORT
+              value: "3000"
+            - name: MONGO_INITDB_ROOT_USERNAME # Needed to construct MONGO_URI
+              valueFrom:
+                secretKeyRef:
+                  name: mongodb-secret
+                  key: MONGO_INITDB_ROOT_USERNAME
+            - name: MONGO_INITDB_ROOT_PASSWORD # Needed to construct MONGO_URI
+              valueFrom:
+                secretKeyRef:
+                  name: mongodb-secret
+                  key: MONGO_INITDB_ROOT_PASSWORD
+            - name: MONGO_URI
+              value: "mongodb://$(MONGO_INITDB_ROOT_USERNAME):$(MONGO_INITDB_ROOT_PASSWORD)@mongodb-service:27017/expensetracker?authSource=admin"
