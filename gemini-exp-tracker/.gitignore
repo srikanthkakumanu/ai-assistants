@@ -1,0 +1,241 @@
+# Node.js
+node_modules/
+dist/
+build/
+.env
+.env.local
+.DS_Store
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# OS
+.DS_Store
+.vscode
+.idea
+
+# Docker
+*.dockerignore
+
+# Kubernetes
+.kube/
+
+# Testing
+/.nyc_output
+/coverage
+/.jest
+
+# npm package manager
+node_modules/
+.npm
+package-lock.json
+
+# ts-node
+.ts-node/
+
+# Next.js
+.next/
+
+# Jest
+.jest/
+
+# Playwright
+test-results/
+
+# Editor/IDE specific files
+.vscode/
+.idea/
+
+# macOS specific files
+.DS_Store
+
+# dotenv files
+.env*.local
+
+# Production build artifacts
+dist/
+build/
+.next/
+out/
+
+# Dependency directories
+node_modules/
+
+# Logs
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# Temporary files
+tmp/
+*.tmp
+*.bak
+*.swp
+*~
+.~*
+.fusebox/
+
+# Kubernetes manifests generated files
+*.yaml.bak
+*.yml.bak
+
+# Docker image files
+*.tar
+*.tar.gz
+
+# dotenv files
+.env
+.env.local
+.env.*.local
+
+# output files
+*.log
+
+# Misc
+.cache/
+.eslintcache
+.prettierignore
+.prettierrc.js
+.pnp.js
+.pnp.cjs
+.gitattributes
+.browserslistrc
+.editorconfig
+
+# VS Code specific
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# IntelliJ IDEA specific
+.idea/*
+!.idea/workspace.xml
+!.idea/tasks.xml
+
+# npm cache
+.npm
+
+# local env files
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# vercel
+.vercel
+
+# typescript build files
+.tsbuildinfo
+
+# next.js build output
+.next
+out
+
+# misc
+.DS_Store
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.next/
+.npm/
+.yarn/
+/build/
+/coverage/
+/dist/
+/logs/
+/node_modules/
+/out/
+/tmp/
+.cache/
+.DS_Store
+.env
+.env.development.local
+.env.local
+.env.production.local
+.env.test.local
+.eslintcache
+.next
+.npm
+.pnp.cjs
+.pnp.js
+.vscode
+.yarn
+build
+coverage
+dist
+logs
+node_modules
+out
+package-lock.json
+pnpm-debug.log
+yarn-debug.log
+yarn-error.log
+temp
+tmp
+.env
+.env.local
+.DS_Store
+.next/
+.npm/
+.yarn/
+/build/
+/coverage/
+/dist/
+/logs/
+/node_modules/
+/out/
+/tmp/
+.cache/
+.eslintcache
+.npmrc
+.pnp.cjs
+.pnp.js
+.yarnrc
+build/
+coverage/
+dist/
+logs/
+node_modules/
+out/
+package-lock.json
+pnpm-debug.log
+yarn-debug.log
+yarn-error.log
+tmp/
+# local development tools
+.vscode/
+.idea/
+
+# next.js cache
+.next/cache/
+
+# Docker build context files
+.dockerignore
+Dockerfile
+
+# Kubernetes secrets/config maps (if directly in repo, though generally not recommended)
+*.key
+*.crt
+*.pem
+*.secret
+*.kubeconfig
+
+# terraform
+.terraform/
+.terraform.lock.hcl
+terraform.tfstate
+terraform.tfstate.backup
+
+# custom
+# Anything else that should be ignored
