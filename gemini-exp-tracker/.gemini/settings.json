@@ -1,0 +1,22 @@
+{
+  "security": {
+    // "auth": "google"
+    // "auth": "google-api-key"
+  },
+  // "model": "gpt-3.5-turbo",
+  "model": "auto",
+  "general": {
+    "checkpointing": {
+      "enabled": true
+    }
+  },
+  "tools": {
+    "allowed": ["google-web-search", "ShellTool"]
+  },
+  "ui": {
+    "showModelInfoInChat": true,
+    "footer": {
+      "hideCWD": true
+    }
+  }
+}
